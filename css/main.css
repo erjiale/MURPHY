@@ -4,19 +4,34 @@ header {
   height: 80px;
   line-height: 80px;
   width: 100%;
+  z-index: 999;
+}
+
+.scrollDownHeader {
   background-color: white;
+  box-shadow: 0px 0px 17px 0px;
+  transition: all 0.5s ease-in;
+}
+
+.default-header-color {
+  color: white;
+}
+
+.scrollDownHeaderText {
+  color: black;
 }
 
 #logoSection {
   position: relative;
   float: left;
   margin-left: 50px;
+  margin-top: 15px;
 }
 
 #navigationContainer {
   position: relative;
   float: right;
-  margin-right: 50px;
+  margin-right: 60px;
 }
 
 #navigationContainer ul {
@@ -25,16 +40,73 @@ header {
 
 #navigationContainer ul li {
   display: inline-block;
-  margin-left: 15px;
+  margin-left: 25px;
   font-size: 15px;
-}
-
-#navigationContainer ul li a {
-  color: black;
 }
 
 #navigationContainer ul li a:hover {
   text-decoration: none;
+  color: gray;
+}
+
+#searchButton {
+  position: relative;
+  display: inline-block;
+  margin-left: 25px;
+  cursor: pointer;
+}
+
+#searchInputField {
+  height: 30px;
+  border: none;
+  border-bottom-color: white;
+  border-bottom-style: solid;
+  background-color: transparent;
+  outline: none;
+  text-align: right;
+  width: 180px;
+}
+
+#alternateSearchColor {
+  height: 30px;
+  border: none;
+  border-bottom-color: black;
+  border-bottom-style: solid;
+  background-color: transparent;
+  outline: none;
+  color: white;
+  text-align: right;
+  width: 180px;
+}
+
+.defaultSearchColor {
+  color: white;
+}
+
+.alternateSearchColor {
+  color: black;
+}
+
+@keyframes searchEnter {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 180px;
+  }
+}
+
+.defaultSearch {
+  display: none;
+}
+
+.defaultSearchColor {
+  color: white;
+}
+
+.showSearch {
+  display: inline-block;
+  animation: 1s ease-out 0s 1 searchEnter;
 }
 
 /* Header SlideShow */
@@ -46,9 +118,11 @@ header {
 
 /* WOMEN-UNISEX-MALE Section */
 #women-unisex-male {
-  height: 90vh;
+  height: auto;
+  /* height: 750px; */
   position: relative;
   padding-top: 5%;
+  margin-bottom: 50px;
 }
 
 .cards {
@@ -114,4 +188,19 @@ header {
   top: 50%;
   left: 10px;
   right: 10px;
+}
+
+/* Footer Section */
+footer {
+  height: 400px;
+  background: #555555;
+  position: relative;
+}
+
+/* 750px && DOWN */
+@media(max-width: 750px) {
+  #navigationContainer ul {
+    display: none;
+  }
+
 }

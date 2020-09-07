@@ -3,6 +3,7 @@
   <head>
     <title>MURPHY</title>
     <link rel="stylesheet" href="css/main.css" type="text/css" />
+    <link rel="stylesheet" href="css/fontawesome/css/all.css">
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -24,26 +25,25 @@
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
     ></script>
-    <!-- <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <script src="js/main.js"></script>
   </head>
   <header>
     <!--Header-->
     <div class="headerContainer">
       <!--Logo Section-->
       <div id="logoSection">
-        <h1>MURPHY</h1>
+        <h1 class="headerText default-header-color">MURPHY</h1>
       </div>
       <!--Navigation Section-->
       <div id="navigationContainer">
         <nav>
           <ul>
-            <li><a href="">Cart</a></li>
-            <li><a href="">My Account</a></li>
+            <li><a href="" class="headerText default-header-color">Cart</a></li>
+            <li><a href="" class="headerText default-header-color">My Account</a></li>
+            <div id="searchButton" onclick="showSearch()">
+              <input type="text" autofocus id="searchInputField" class="defaultSearch" onfocusout="removeSearchInput()">
+              <i class="headerText default-header-color fas fa-search"></i>
+            </div>
           </ul>
         </nav>
       </div>
