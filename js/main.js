@@ -5,10 +5,13 @@ $(window).scroll(function () {
     $("header").addClass("scrollDownHeader");
     if ($("ul").hasClass("blackBg")) $("ul").removeClass("blackBg");
     $("ul").addClass("whiteBg");
+    $(".dropdown-content").addClass("scrolled-down");
   } else if ($("header").hasClass("scrollDownHeader")) {
     $("header").removeClass("scrollDownHeader");
     if ($("ul").hasClass("whiteBg")) $("ul").removeClass("whiteBg");
     $("ul").addClass("blackBg");
+    if ($(".dropdown-content").hasClass("scrolled-down"))
+      $(".dropdown-content").removeClass("scrolled-down");
   }
 });
 
