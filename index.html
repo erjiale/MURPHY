@@ -3,7 +3,7 @@
   <head>
     <title>MURPHY</title>
     <link rel="stylesheet" href="css/main.css" type="text/css" />
-    <link rel="stylesheet" href="css/fontawesome/css/all.css">
+    <link rel="stylesheet" href="css/fontawesome/css/all.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -34,16 +34,35 @@
       <div id="logoSection">
         <h1 class="headerText default-header-color">MURPHY</h1>
       </div>
+      <!-- Toggle Menu on Smaller Screens -->
+      <input type="checkbox" id="check" />
+      <label
+        for="check"
+        id="checkBtn"
+        class="headerText default-header-color"
+        onclick="onToggleMenu()"
+      >
+        <!-- <i class="fas fa-bars"></i> -->
+        <div id="menu-btn__burger"></div>
+      </label>
       <!--Navigation Section-->
       <div id="navigationContainer">
         <nav>
           <ul>
-            <li><a href="" class="headerText default-header-color">Cart</a></li>
-            <li><a href="" class="headerText default-header-color">My Account</a></li>
             <div id="searchButton" onclick="showSearch()">
-              <input type="text" autofocus id="searchInputField" class="defaultSearch" onfocusout="removeSearchInput()">
+              <input
+                type="text"
+                autofocus
+                id="searchInputField"
+                class="defaultSearch"
+                onfocusout="removeSearchInput()"
+              />
               <i class="headerText default-header-color fas fa-search"></i>
             </div>
+            <li><a href="" class="headerText default-header-color">Cart</a></li>
+            <li>
+              <a href="" class="headerText default-header-color">My Account</a>
+            </li>
           </ul>
         </nav>
       </div>
