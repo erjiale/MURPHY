@@ -27,15 +27,6 @@ $(window).scroll(function () {
   }
 });
 
-// $(window).scroll(function () {
-//   var top = $(window).scrollTop();
-//   if (top >= 60) {
-//     $("#menu-btn__burger").css("background", "black");
-//   } else {
-//     $("#menu-btn__burger").css("background", "white");
-//   }
-// });
-
 //Show Search Input Function
 function showSearch() {
   if ($(".headerText").hasClass("scrollDownHeaderText")) {
