@@ -3,13 +3,16 @@ $(window).scroll(function () {
   var top = $(window).scrollTop();
   if (top >= 60) {
     $("header").addClass("scrollDownHeader");
-    if ($("ul").hasClass("blackBg")) $("ul").removeClass("blackBg");
-    $("ul").addClass("whiteBg");
+    if ($("#navigationContainer ul").hasClass("blackBg"))
+      $("#navigationContainer ul").removeClass("blackBg");
+    $("#navigationContainer ul").addClass("whiteBg");
     $(".dropdown-content").addClass("scrolled-down");
-  } else if ($("header").hasClass("scrollDownHeader")) {
-    $("header").removeClass("scrollDownHeader");
-    if ($("ul").hasClass("whiteBg")) $("ul").removeClass("whiteBg");
-    $("ul").addClass("blackBg");
+  } else {
+    if ($("header").hasClass("scrollDownHeader"))
+      $("header").removeClass("scrollDownHeader");
+    if ($("#navigationContainer ul").hasClass("whiteBg"))
+      $("#navigationContainer ul").removeClass("whiteBg");
+    $("#navigationContainer ul").addClass("blackBg");
     if ($(".dropdown-content").hasClass("scrolled-down"))
       $(".dropdown-content").removeClass("scrolled-down");
   }
