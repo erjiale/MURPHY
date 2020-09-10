@@ -29,6 +29,7 @@ header {
   margin-left: 50px;
   margin-top: 15px;
 }
+
 /* TOGGLE menu */
 #checkBtn {
   font-size: 30px;
@@ -214,6 +215,10 @@ header {
   width: 100%;
   height: 100vh;
   background-color: black;
+  /* background: url("../images/header-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; */
 }
 
 /* Slogan Section */
