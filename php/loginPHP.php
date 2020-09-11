@@ -25,13 +25,10 @@ if (isset($_POST['login_submit'])) { // check if POST Request sent by login_subm
             //header("Location: ../pages/login.php?error=wrongpassword");
             //exit();
         } else if ($passwordCheck == true) {
-            echo "Login Success";
-            /* 
-        session_start();
-        $_SESSION['userId'] = $row['user_id'];
-        header("Location: ../pages/login.php?success=success");
-        exit();
-         */
+            session_start();
+            $_SESSION['userId'] = $row['user_id'];
+            header("Location: ../index.php");
+            exit();
         }
     } else echo "User does not exist";
 }
