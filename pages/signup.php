@@ -6,29 +6,28 @@ if (isset($_SESSION['userId'])) {
     exit();
 } else {
 ?>
-<?php
+    <?php
     require "../components/header.php"
-?>
+    ?>
 
-<body id="headerSlideShow">
-    <div class="row-container">
-        <!-- SIGNUP Form -->
-        <form class="registerContainer" action="../php/signupPHP.php" method="post">
-            <h1>signup</h1>
-            <input type="text" name="fname" placeholder="First Name" id="fname">
-            <input type="text" name="lname" placeholder="Last Name" id="lname">
-            <input type="date" id="date" placeholder="Date of Birth" name="date" min="1950-01-01" max="">
-            <input type="text" name="username" placeholder="Enter Username" id="username">
-            <input type="text" name="email" placeholder="Enter Email" id="email">
-            <input type="password" name="password" placeholder="Enter Password" id="password">
-            <input type="password" name="passwordverify" placeholder="Re-enter Password" id="passwordverify">
-            <button type="submit" name="signup_submit">Signup</button>
-            <h5>Already have an account? <br /><a href="login.php">Login here</a></h5>
-        </form>
-    </div>
-</body>
+    <body id="headerSlideShow">
+        <div class="row-container">
+            <!-- SIGNUP Form -->
+            <form class="registerContainer" action="../php/signupPHP.php" method="post">
+                <h1>signup</h1>
+                <input type="text" name="fname" placeholder="First Name" id="fname">
+                <input type="text" name="lname" placeholder="Last Name" id="lname">
+                <input type="date" id="date" placeholder="Date of Birth" name="date" min="1950-01-01" max="">
+                <input type="text" name="username" placeholder="Enter Username" id="username">
+                <input type="text" name="email" placeholder="Enter Email" id="email">
+                <input type="password" name="password" placeholder="Enter Password" id="password">
+                <input type="password" name="passwordverify" placeholder="Re-enter Password" id="passwordverify">
+                <button type="submit" name="signup_submit">Signup</button>
+                <h5>Already have an account? <br /><a href="login.php">Login here</a></h5>
+            </form>
+        </div>
+    </body>
 <?php
 }
 require "../components/footer.php";
 ?>
-
