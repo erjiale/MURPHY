@@ -14,6 +14,10 @@ header {
   transition: all 0.5s ease-in;
 }
 
+.logout-color {
+  color: #ff8288;
+}
+
 .default-header-color {
   color: white;
 }
@@ -28,6 +32,11 @@ header {
   float: left;
   margin-left: 50px;
   margin-top: 15px;
+}
+
+#logoSection h1 a:hover {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* TOGGLE menu */
@@ -215,7 +224,7 @@ header {
   width: 100%;
   height: 100vh;
   background-color: black;
-  /* background: url("../images/header-bg.jpg");
+    /* background: url("../images/header-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center; */
@@ -364,6 +373,8 @@ footer {
   height: 400px;
   background: #000;
   position: relative;
+  bottom: 0;
+  top: 100%;
 }
 
 footer .footer-bottom {

@@ -25,13 +25,11 @@ if ($row = mysqli_fetch_assoc($result)) {
         //header("Location: ../pages/login.php?error=wrongpassword");
         //exit();
     } else if ($passwordCheck == true) {
-        echo "Login Success";
-        /* 
         session_start();
         $_SESSION['userId'] = $row['user_id'];
-        header("Location: ../pages/login.php?success=success");
+        header("Location: ../index.php");
         exit();
-         */
+         
     }
 } else {
     echo "User does not exist";

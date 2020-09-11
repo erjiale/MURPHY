@@ -1,9 +1,15 @@
+<?php
+session_set_cookie_params(360/360,"/");
+session_start();
+include 'php/connection.php';
+?>
 <!DOCTYPE html>
 <html>
   <head>
     <title>MURPHY</title>
     <link rel="stylesheet" href="css/main.css" type="text/css" />
     <link rel="stylesheet" href="css/fontawesome/css/all.css" />
+    <link rel="stylesheet" href="css/authentication.css" type="text/css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -48,7 +54,7 @@
       <!--Navigation Section-->
       <div id="navigationContainer">
         <nav>
-          <ul>
+          <ul class="blackBg">
             <div id="searchButton" onclick="showSearch()">
               <input
                 type="text"
@@ -60,6 +66,20 @@
               <i class="headerText default-header-color fas fa-search"></i>
             </div>
             <li><a href="" class="headerText default-header-color">Cart</a></li>
+            <?php
+            if (isset($_SESSION['userId'])) {
+              $userId = $_SESSION['userId'];
+              $sql = "SELECT * FROM users WHERE user_id='$userId'";
+              $stmt = mysqli_query($conn, $sql);
+              $row = mysqli_fetch_assoc($stmt);
+              $fname = $row['user_fname'];
+              $lname = $row['user_lname'];
+              ?>
+                <li><a href="" class="headerText default-header-color"><?php echo $fname ?> <?php echo $lname ?></a></li>
+                <li><a href="php/logout.php" class="logout-color">Logout</a></li>
+              <?php
+            } else {
+            ?>
             <li class="dropdown">
               <a class="headerText default-header-color">My Account </a>
               <div class="dropdown-content">
@@ -75,12 +95,15 @@
                 >
               </div>
             </li>
+            <?php
+            }
+            ?>
           </ul>
         </nav>
       </div>
     </div>
   </header>
-
+  
   <body>
     <!--Top Slideshow-->
     <div id="headerSlideShow"></div>
@@ -137,7 +160,7 @@
       </div>
     </div>
   </body>
-
+  
   <footer>
     <div class="footer-bottom">&copy; 2020 MURPHY</div>
   </footer>
