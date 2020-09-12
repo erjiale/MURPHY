@@ -17,21 +17,21 @@ if (isset($_SESSION['userId'])) {
             <?php
             if (isset($_GET['error'])) {
                 if ($_GET['error'] == 'nouser') {
-                    ?>
+            ?>
                     <p class="loginError">User does not exist</p>
-                    <?php
+                <?php
                 } else if ($_GET['error'] == 'wrongpassword') {
-                    ?>
+                ?>
                     <p class="loginError">Incorrect Password</p>
-                    <?php
+                <?php
                 } else if ($_GET['error'] == 'emptyfields') {
-                    ?>
-                    <p class="loginError">Fill in the fields</p>
-                    <?php
+                ?>
+                    <p class="loginError">Fields must not be empty</p>
+                <?php
                 } else {
-                    ?>
+                ?>
                     <p class="loginError">System error. Please try again</p>
-                    <?php
+            <?php
                 }
             }
             ?>
