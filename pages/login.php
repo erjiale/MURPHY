@@ -14,6 +14,27 @@ if (isset($_SESSION['userId'])) {
         <!-- LOGIN Form -->
         <form class="loginContainer" action=" ../php/loginPHP.php" method="post">
             <h1>login</h1>
+            <?php
+            if (isset($_GET['error'])) {
+                if ($_GET['error'] == 'nouser') {
+                    ?>
+                    <p class="loginError">User does not exist</p>
+                    <?php
+                } else if ($_GET['error'] == 'wrongpassword') {
+                    ?>
+                    <p class="loginError">Incorrect Password</p>
+                    <?php
+                } else if ($_GET['error'] == 'emptyfields') {
+                    ?>
+                    <p class="loginError">Fill in the fields</p>
+                    <?php
+                } else {
+                    ?>
+                    <p class="loginError">System error. Please try again</p>
+                    <?php
+                }
+            }
+            ?>
             <input type="text" name="username" placeholder="Username" id="username">
             <input type="password" name="password" placeholder="Password" id="password">
             <button type="submit" name="login_submit">Login</button>

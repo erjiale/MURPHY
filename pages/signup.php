@@ -14,7 +14,28 @@ if (isset($_SESSION['userId'])) {
         <div class="row-container">
             <!-- SIGNUP Form -->
             <form class="registerContainer" action="../php/signupPHP.php" method="post">
-                <h1>signup</h1>
+                <h1>Signup</h1>
+                <?php
+                if (isset($_GET['error'])) {
+                    if ($_GET['error'] == 'emptyfields') {
+                        ?>
+                        <p class="loginError">Fill in the fields</p>
+                        <?php
+                    } else if ($_GET['error'] == 'usertaken') {
+                        ?>
+                        <p class="loginError">Username taken</p>
+                        <?php
+                    } else if ($_GET['error'] == 'mailtaken') {
+                        ?>
+                        <p class="loginError">Email taken</p>
+                        <?php
+                    } else if ($_GET['error'] == 'passwordcheck') {
+                        ?>
+                        <p class="loginError">Password does not match</p>
+                        <?php
+                    }
+                }
+                ?>
                 <input type="text" name="fname" placeholder="First Name" id="fname">
                 <input type="text" name="lname" placeholder="Last Name" id="lname">
                 <input type="date" id="date" placeholder="Date of Birth" name="date" min="1950-01-01" max="">
