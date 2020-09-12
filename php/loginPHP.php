@@ -22,13 +22,16 @@ if (isset($_POST['login_submit'])) { // check if POST Request sent by login_subm
         $passwordCheck = password_verify($password, $row['user_pwd']);
         if ($passwordCheck == false) {
             echo "Wrong Password";
-            //header("Location: ../pages/login.php?error=wrongpassword");
-            //exit();
+            header("Location: ../pages/login.php?error=wrongpassword");
+            exit();
         } else if ($passwordCheck == true) {
             session_start();
             $_SESSION['userId'] = $row['user_id'];
             header("Location: ../index.php");
             exit();
         }
-    } else echo "User does not exist";
+    } else {
+        header("Location: ../pages/login.php?error=nouser");
+        exit();
+    }
 }

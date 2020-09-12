@@ -14,7 +14,7 @@ if (isset($_POST['signup_submit'])) {
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     if (empty($username) || empty($email) || empty($password) || empty($passwordVerify) || empty($fname) || empty($lname) || empty($date)) {
-        //header("Location: ../pages/signup.php?error=emptyfields");
+        header("Location: ../pages/signup.php?error=emptyfields");
         echo "Empty Fields";
         exit();
     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match('/^[a-zA-Z0-9]*$/', $username)) {
@@ -41,8 +41,7 @@ if (isset($_POST['signup_submit'])) {
     mysqli_stmt_store_result($stmt);
     $result = mysqli_stmt_num_rows($stmt);
     if ($result > 0) {
-        //header("Location: ../pages/signup.php?error=usertaken&mail=".$email);
-        echo "username taken";
+        header("Location: ../pages/signup.php?error=usertaken&mail=".$email);
         exit();
     }
     $sql = "SELECT user_email FROM users WHERE user_email=?";
@@ -56,8 +55,7 @@ if (isset($_POST['signup_submit'])) {
     mysqli_stmt_store_result($stmt);
     $result = mysqli_stmt_num_rows($stmt);
     if ($result > 0) {
-        //header("Location: ../pages/signup.php?error=invalidmail&uid=".$username);
-        echo "invalid email";
+        header("Location: ../pages/signup.php?error=mailtaken&uid=".$username);
         exit();
     }
     $sql = "INSERT INTO users (user_name, user_email, user_pwd, user_fname, user_lname, user_date, user_type) VALUES (?, ?, ?, ?, ?, ?, ?)";
