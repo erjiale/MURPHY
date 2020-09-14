@@ -24,12 +24,14 @@ if (isset($_POST['login_submit'])) { // check if POST Request sent by login_subm
             echo "Wrong Password";
             header("Location: ../pages/login.php?error=wrongpassword");
             exit();
-        } else if ($passwordCheck == true) {
-            session_start();
-            $_SESSION['userId'] = $row['user_id'];
-            header("Location: ../index.php");
-            exit();
         }
+        session_start();
+        if ($row['user_type'] == 'admin') $_SESSION['adminId'] = $row['user_id'];
+        else $_SESSION['userId'] = $row['user_id'];
+
+        // $_SESSION['userId'] = $row['user_id'];
+        header("Location: ../index.php");
+        exit();
     } else {
         header("Location: ../pages/login.php?error=nouser");
         exit();

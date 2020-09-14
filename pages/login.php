@@ -1,7 +1,7 @@
 <?php
 session_start();
 include '../php/connection.php';
-if (isset($_SESSION['userId'])) {
+if (isset($_SESSION['userId']) || isset($_SESSION['adminId'])) {
     header("Location:../index.php");
     exit();
 } else {
