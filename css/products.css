@@ -1,0 +1,80 @@
+#products-header {
+  background: black;
+  width: 100%;
+  height: 80px;
+}
+
+.products-catalog {
+  margin-top: 10px;
+}
+
+#addProductContainer input {
+  font-size: 1.1em;
+  border: 2px solid black;
+  border-radius: 1em;
+  background: none;
+  padding: 10px;
+  margin-top: 1em;
+  outline: none;
+  text-align: center;
+  transition: 0.3s;
+  margin-left: 10px;
+}
+
+#addProductContainer input[type="text"] {
+  height: 40px;
+  width: 222px;
+}
+
+#addProductContainer input[type="text"]:focus {
+  width: 250px;
+}
+#addProductContainer input[type="number"] {
+  height: 40px;
+  width: 100px;
+}
+
+#addProductContainer button {
+  font-size: 1.1em;
+  border: 2px solid black;
+  border-radius: 1em;
+  background: pink;
+  padding: 10px;
+  margin-top: 1em;
+  outline: none;
+  text-align: center;
+  transition: 0.3s;
+  margin-left: 10px;
+}
+
+#addProductContainer button:hover {
+  border: 2px solid pink;
+  color: #fff;
+}
+
+#addProductContainer input:focus {
+  border-color: pink;
+}
+
+.imagePreview-container {
+  width: 250px;
+  position: relative;
+}
+
+#image_preview {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  margin: auto;
+  border-style: ridge;
+}
+
+.container p {
+  text-align: center;
+}
+
+.product-image {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+}

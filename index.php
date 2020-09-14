@@ -40,8 +40,9 @@ include 'php/connection.php';
           </div>
           <li><a href="" class="headerText default-header-color">Cart</a></li>
           <?php
-          if (isset($_SESSION['userId'])) {
-            $userId = $_SESSION['userId'];
+          if (isset($_SESSION['userId']) || isset($_SESSION['adminId'])) {
+            if (isset($_SESSION['userId'])) $userId = $_SESSION['userId'];
+            else $userId = $_SESSION['adminId'];
             $sql = "SELECT * FROM users WHERE user_id='$userId'";
             $stmt = mysqli_query($conn, $sql);
             $row = mysqli_fetch_assoc($stmt);

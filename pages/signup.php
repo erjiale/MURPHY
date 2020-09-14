@@ -1,7 +1,7 @@
 <?php
 session_start();
 include '../php/connection.php';
-if (isset($_SESSION['userId'])) {
+if (isset($_SESSION['userId']) || isset($_SESSION['adminId'])) {
     header("Location:../index.php");
     exit();
 } else {
@@ -18,21 +18,21 @@ if (isset($_SESSION['userId'])) {
                 <?php
                 if (isset($_GET['error'])) {
                     if ($_GET['error'] == 'emptyfields') {
-                        ?>
+                ?>
                         <p class="loginError">Fill in the fields</p>
-                        <?php
+                    <?php
                     } else if ($_GET['error'] == 'usertaken') {
-                        ?>
+                    ?>
                         <p class="loginError">Username taken</p>
-                        <?php
+                    <?php
                     } else if ($_GET['error'] == 'mailtaken') {
-                        ?>
+                    ?>
                         <p class="loginError">Email taken</p>
-                        <?php
+                    <?php
                     } else if ($_GET['error'] == 'passwordcheck') {
-                        ?>
+                    ?>
                         <p class="loginError">Password does not match</p>
-                        <?php
+                <?php
                     }
                 }
                 ?>
