@@ -33,17 +33,27 @@ require "../components/header.php";
 
         if ($resultCheck > 0) {
         ?>
+            
             <div class="container mt-5">
                 <div class="row">
                     <?php while ($row = mysqli_fetch_assoc($result)) {
                         $image = $row['product_image'];
-                    ?> <div class="col-6 col-sm-4 col-md-3">
-                            <img class="product-image" src="http://localhost:8080/murphy/uploads/<?php echo $image ?>" alt="<?php echo $row['product_name'] ?>" />
-                            <p><?php echo "<br />", $row['product_name'], "<br/> $", $row['product_price']; ?></p>
-                        </div>
+                    ?> 
+                    <div id="productContainer" class="col-6 col-sm-4 col-md-3">
+                    <a href="productPage.php">
+                            <img id="product-image" src="http://localhost:8080/MURPHY/product_images/<?php echo $image ?>" alt="<?php echo $row['product_name'] ?>" />
+                            <div id="product-name">
+                                <p><?php echo $row['product_name']; ?></p>
+                            </div>
+                            <div id="product-price">
+                                <p><?php echo "$", $row['product_price']; ?></p>
+                            </div>
+                    </a>
+                    </div>
                     <?php } ?>
                 </div>
             </div>
+            
         <?php } ?>
 
         <!-- if ($resultCheck > 0)
