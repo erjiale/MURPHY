@@ -15,7 +15,7 @@ require "../components/header.php";
             <form id="addProductContainer" action="../php/products/createProduct.php" method="POST" enctype="multipart/form-data">
                 <input type="text" name="productName" placeholder="Product Name" id="productName" />
                 <input type="number" name="productPrice" placeholder="Price" id="productPrice" />
-                <input type="file" name="productImage" accept="image/png, image/jpeg" onChange="handleChangeImagePreview(event)" />
+                <input type="file" name="productImage" accept="image/png, image/jpeg" onChange="handleChangeImagePreview(event)"/>
                 <div class="imagePreview-container">
                     <img id="image_preview" />
                 </div>

@@ -50,6 +50,13 @@ include 'php/connection.php';
             $lname = $row['user_lname'];
           ?>
             <li><a href="" class="headerText default-header-color"><?php echo $fname ?> <?php echo $lname ?></a></li>
+            <?php
+            if ($row['user_type'] == 'admin') {
+              ?>
+              <li><a href="pages/admin.php" class="headerText default-header-color">Add Products</a></li>
+              <?php
+            }
+            ?>
             <li><a href="php/logout.php" class="logout-color">Logout</a></li>
           <?php
           } else {
