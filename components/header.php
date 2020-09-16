@@ -36,6 +36,7 @@
             <i class="headerText default-header-color fas fa-search"></i>
           </div>
           <li><a href="" class="headerText default-header-color">Cart</a></li>
+          <li><a href="../pages/products.php" class="headerText default-header-color">Products</a></li>
           <?php
           if (isset($_SESSION['userId']) || isset($_SESSION['adminId'])) {
             if (isset($_SESSION['userId'])) $userId = $_SESSION['userId'];

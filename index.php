@@ -39,6 +39,7 @@ include 'php/connection.php';
             <i class="headerText default-header-color fas fa-search"></i>
           </div>
           <li><a href="" class="headerText default-header-color">Cart</a></li>
+          <li><a href="./pages/products.php" class="headerText default-header-color">Products</a></li>
           <?php
           if (isset($_SESSION['userId']) || isset($_SESSION['adminId'])) {
             if (isset($_SESSION['userId'])) $userId = $_SESSION['userId'];
@@ -50,13 +51,6 @@ include 'php/connection.php';
             $lname = $row['user_lname'];
           ?>
             <li><a href="" class="headerText default-header-color"><?php echo $fname ?> <?php echo $lname ?></a></li>
-            <?php
-            if ($row['user_type'] == 'admin') {
-              ?>
-              <li><a href="pages/admin.php" class="headerText default-header-color">Add Products</a></li>
-              <?php
-            }
-            ?>
             <li><a href="php/logout.php" class="logout-color">Logout</a></li>
           <?php
           } else {
@@ -131,6 +125,16 @@ include 'php/connection.php';
         </div>
       </div>
     </div>
+  </div>
+  <div id="indexSeparator"></div>
+  <div id="productDisplay">
+    <?php
+    $sql = "SELECT * FROM products";
+    $stmt = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($stmt);
+    $image = $row['product_image'];
+    ?>
+    <img src="<?php echo $image; ?>" alt="">
   </div>
 </body>
 

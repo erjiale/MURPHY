@@ -33,10 +33,14 @@ if (isset($_POST['addProduct_submit'])) {
     else {
         // Set new filename for the image to be stored
         $imageFileNameNew = time() . "." . $fileActualExt;
-        $fileDestination = '../../uploads/' . $imageFileNameNew;
+        $fileDestination = '../../product_images/'.$imageFileNameNew;
         // @params: temp location of the file, and the new file destination where to be stored
         // STORE ProductImage on static '.uploads/' folder
-        move_uploaded_file($imageTempName, $fileDestination);
+
+        if(!move_uploaded_file($imageTempName, $fileDestination)) {
+            header("Location: ../../pages/products.php?error=moveUploadedFileError");
+            exit();
+        }
 
         // Add Product into Database...
         $sql = "INSERT INTO products (product_name, product_price, product_image) VALUES (?, ?, ?);";
@@ -49,5 +53,5 @@ if (isset($_POST['addProduct_submit'])) {
         mysqli_stmt_close($stmt);
         mysqli_close($conn);
         header("Location: ../../pages/products.php?success");
-    }
+    } 
 }
